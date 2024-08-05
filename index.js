@@ -14,7 +14,6 @@ const results = [];
         // Connect to the database
         await connection();
 
-        // Read and parse the CSV file
         fs.createReadStream(csvFilePath)
             .pipe(csv())
             .on('data', (data) => {
@@ -60,7 +59,7 @@ const results = [];
 
 
 const mongoose = require('mongoose');
-const connection = require('./connection'); // Ensure this correctly points to your MongoDB connection module
+const connection = require('./connection');
 const { Movie } = require('./models/movieschema');
 const CriticReview = require('./models/criticschema');
 const UserReview = require('./models/userschema');
@@ -71,12 +70,10 @@ const fs = require('fs');
 const csv = require('csv-parser');
 const path = require('path');
 
-// Paths to CSV files
 const movieCsvFilePath = path.join(__dirname, 'data', 'movies.csv');
 const criticCsvFilePath = path.join(__dirname, 'data', 'critic_reviews.csv');
 const userCsvFilePath = path.join(__dirname, 'data', 'user_reviews.csv');
 
-// Load movies from CSV
 async function loadMovies() {
     const results = [];
 
@@ -103,12 +100,11 @@ async function loadMovies() {
                     const result = await Movie.bulkWrite(bulkOps);
                     console.log('Movies bulk write result:', result);
 
-                    // Example usage of getRatingCountsForMovie and getMoviesByCriteria
-                    const exampleMovie = results[0]; // Replace with the desired movie object
+                    const exampleMovie = results[0]; 
                     const ratingCounts = await getMovieRatingCounts(exampleMovie);
                     console.log('Rating counts for movie:', ratingCounts);
 
-                    const criteria = { movieYear: 2021 }; // Replace with the desired criteria
+                    const criteria = { movieYear: 2021 };
                     const movies = await getMoviesByCriteria(criteria);
                     console.log('Movies from the year 2021:', movies);
 

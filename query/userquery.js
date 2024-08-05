@@ -1,4 +1,4 @@
-const UserReview = require('../models/userschema'); // Adjust the path as needed
+const UserReview = require('../models/userschema');
 
 async function getRatingCountsForMovie(movie) {
     try {

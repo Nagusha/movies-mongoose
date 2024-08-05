@@ -1,0 +1,6 @@
+
+{
+    "criticData" : "/Users/nagusha/Desktop/mongodb/Data/critic_reviews.csv",
+    "movieData" : "/Users/nagusha/Desktop/mongodb/Data/movies.csv",
+    "userData" : "/Users/nagusha/Desktop/mongodb/Data/user_reviews.csv"
+}

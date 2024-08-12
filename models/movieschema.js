@@ -31,6 +31,9 @@ const movieSchema = new mongoose.Schema({
     audience_score: { 
         type: Number,
         required: true
+    },
+rating: {
+    type: Number
     }
 });
 const Movie = mongoose.model('Movie', movieSchema);

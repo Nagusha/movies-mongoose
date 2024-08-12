@@ -16,12 +16,12 @@ async function getRatingCountsForMovie(movie) {
         const result = await Movie.aggregate([
             {
                 $match: {
-                    _id: movie._id,
+                    movieId: movie.movieId,
                 }
             },
             {
                 $group: {
-                    _id: "$critic_score", 
+                    _id: "$rating", 
                     count: { $sum: 1 } 
                 }
             },

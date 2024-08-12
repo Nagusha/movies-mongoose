@@ -140,11 +140,14 @@ async function loadCriticReviews() {
             .on('end', async () => {
                 console.log('Filtered Critic Reviews CSV data:', results);
                 try {
+                    if (mongoose.connection.readyState !== 1) {
+                        throw new Error('MongoDB connection is not open');
+                    }
                     const validResults = results.filter(doc => !isNaN(doc.originalScore));
                     const bulkOps = validResults.map(doc => ({
                         updateOne: {
                             filter: { reviewId: doc.reviewId },
-                            update: doc,
+                            update: { $set: doc },
                             upsert: true
                         }
                     }));

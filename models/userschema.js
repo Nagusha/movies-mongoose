@@ -5,40 +5,36 @@ const userSchema = new Schema({
     userId: {
         type: String,
         required: true
-       // unique: true
     },
     reviewId: {
         type: String,
-        required: true,
-        unique: true
+        required: true
     },
     rating: {
-        type: Number,
-        default: null
+        type: Number
     },
     score: {
-        type: Number,
-        default: null
+        type: Number
     },
     creationDate: {
         type: Date,
-        default: Date.now
+        required: true
     },
     isVerified: {
         type: Boolean,
-        default: false
+        required: true
     },
     isSuperReviewer: {
         type: Boolean,
-        default: false
+        required: true
     },
     hasSpoilers: {
         type: Boolean,
-        default: false
+        required: true
     },
     hasProfanity: {
         type: Boolean,
-        default: false
+        required: true
     }
 
 });

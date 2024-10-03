@@ -1,4 +1,4 @@
-// movieQuery.js
+
 const { Movie } = require('../models/movieschema');
 
 async function getMoviesByCriteria(criteria) {
